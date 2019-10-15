@@ -39,5 +39,13 @@
         "psr-0": {
             "PHPExcel": "Classes/"
         }
-    }
+    },
+    "post-install-cmd": [
+        "Illuminate\\Foundation\\ComposerScripts::postInstall",
+        "sed -i '768s/.*/if(!empty($columns)){/' vendor/phpoffice/phpexcel/Classes/PHPExcel/Writer/Excel2007/Worksheet.php"
+    ],
+    "post-update-cmd": [
+        "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+        "sed -i '768s/.*/if(!empty($columns)){/' vendor/phpoffice/phpexcel/Classes/PHPExcel/Writer/Excel2007/Worksheet.php"
+    ]
 }
